@@ -5,5 +5,7 @@ public:
 
 	Renderer();
 
+	virtual void draw();
+
 	virtual void getRenderer();
 };

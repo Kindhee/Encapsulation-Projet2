@@ -6,6 +6,10 @@ Renderer::Renderer()
 	// create
 }
 
+void Renderer::draw()
+{
+}
+
 void Renderer::getRenderer()
 {
 }

@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "Gameplay.h"
-#include "Ball.h"
 
 Gameplay::Gameplay()
 {
@@ -9,6 +8,7 @@ Gameplay::Gameplay()
 
 void Gameplay::StartGame()
 {
+
 	// start time 
 
 	// each x milliseconds 
