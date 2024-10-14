@@ -6,21 +6,39 @@ Gameplay::Gameplay()
 
 }
 
-void Gameplay::StartGame()
+void Gameplay::displayGame(sf::RenderWindow* window)
+{
+	for (int i = balls.size(); i > 0; i--)
+	{
+		Ball* ball_temp = balls[i - 1];
+		window->draw(ball_temp->ball_circle);
+	}
+}
+
+void Gameplay::game(sf::RenderWindow* window)
 {
 
-	// start time 
+	timer += 0.333;
 
-	// each x milliseconds 
-	// create new ball with size life span texture speed not really random
-	// add to vector_balls
-	
-	// make balls move
+	if (timer > 600)
+	{
+		timer = 0;
+		Ball* ball_temp = new Ball(100, 100, 1, 1, 10, 0.2f, 600);
+		balls.push_back(ball_temp);
+	}
 
-	// check collison
+	for (int i = balls.size(); i > 0; i--)
+	{
+		balls[i - 1]->move(window->getSize().x, window->getSize().y);
 
-	// decrement their lifespan 
+		balls[i - 1]->decrementLifespan(0.1f); // delta time next
 
-	// check their lifespan 
-
+		if (balls[i - 1]->getLifespan() <= 0.f)
+		{
+			delete balls[i - 1];
+			balls.erase(balls.begin() + (i - 1));
+			std::cout << "ball erased";
+		}
+	}
 }
+

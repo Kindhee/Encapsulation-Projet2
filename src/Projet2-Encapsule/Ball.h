@@ -4,26 +4,31 @@
 class Ball {
 public:
 	
-	Ball(int x, int y, int size, sf::Texture texture, int speed, int lifespan);
+	//Ball(int x, int y, int size, sf::Texture texture, int speed, int lifespan);
 
-	void move();
+	Ball(float x, float y, int dir_x, int dir_y, int size, float speed, int lifespan);
+
+	void move(int size_x, int size_y);
 
 	void checkCollison();
 
 	void changeDirection();
 
-	void decrementLifespan(int time_elapsed);
+	void decrementLifespan(float time_elapsed);
 
-	void checkLifespan();
+	int getLifespan();
+
+	sf::CircleShape ball_circle;
 
 private:
 
-	void destroy();
+	float ball_x;
+	float ball_y;
+	int ball_dir_x;
+	int ball_dir_y;
+	float ball_speed;
+	float ball_lifespan;
 
-	int	ball_x;
-	int ball_y;
-	int ball_speed;
-	int ball_lifespan;
-	sf::Sprite ball_sprite;
+	//sf::Sprite ball_sprite;
 
 };
