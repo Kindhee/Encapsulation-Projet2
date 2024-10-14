@@ -37,7 +37,6 @@ void Gameplay::game(sf::RenderWindow* window)
 		{
 			delete balls[i - 1];
 			balls.erase(balls.begin() + (i - 1));
-			std::cout << "ball erased";
 		}
 	}
 }
